@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import ashFront from "assets/images/ashFront.png";
-import ashRight from "assets/images/ashRightLeg.png";
-import ashLeft from "assets/images/ashLeftLeg.png";
-import ashStop from "assets/images/ashStop.png";
+import ashFront from "../../assets/images/ashFront.png";
+import ashRight from "../../assets/images/ashRightLeg.png";
+import ashLeft from "../../assets/images/ashLeftLeg.png";
+import ashStop from "../../assets/images/ashStop.png";
 
 export const Container = styled.div`
   display: flex;

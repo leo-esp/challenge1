@@ -1,8 +1,8 @@
 import React from "react";
 
-import Button from "components/Button";
+import Button from "../atoms/Buttons/DefaultButton";
 
-import iconPlus from "assets/images/plus.png";
+import { PlusIcon } from "../../assets/images";
 
 import * as S from "./styled";
 
@@ -12,7 +12,7 @@ const Sidebar = () => (
       <S.SideBarItem>?</S.SideBarItem>
     </S.SideBarList>
 
-    <Button icon={iconPlus} />
+    <Button icon={PlusIcon} text="" />
   </S.SideBarWrapper>
 );
 

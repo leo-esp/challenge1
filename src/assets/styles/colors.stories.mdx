@@ -1,0 +1,38 @@
+<!-- Colors.stories.mdx -->
+
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+import { theme } from "./colors";
+
+<Meta title="Colors" />
+
+<ColorPalette>
+  {Object.keys(theme).map((colorKey) => {
+    if (colorKey === "type") {
+      return;
+    }
+    if (colorKey === "neutrals") {
+      const neutrals = Object.keys(theme["neutrals"]).reduce(
+        (total, currentValue) => ({
+          ...total,
+          [currentValue]: theme[colorKey][currentValue],
+        }),
+        {}
+      );
+      console.log(neutrals);
+      return (
+        <ColorItem
+          title={colorKey}
+          subtitle={`theme.${colorKey}`}
+          colors={neutrals}
+        />
+      );
+    }
+    return (
+      <ColorItem
+        title={colorKey}
+        subtitle={`theme.${colorKey}`}
+        colors={{ [colorKey]: theme[colorKey] }}
+      />
+    );
+  })}
+</ColorPalette>

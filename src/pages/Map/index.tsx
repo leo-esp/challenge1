@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Sidebar from "../../components/Sidebar";
 import Trainer from "../../components/Trainer";
-import Modal from "../../components/Modal";
+import Modal from "../../components/organisms/Modal";
 
 import * as S from "./styled";
 
-const MapPage = () => (
-  <S.MapWrapper className="map">
-    <Sidebar />
-    <Trainer />
-    <Modal isOpen />
-  </S.MapWrapper>
-);
+const MapPage = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <S.MapWrapper className="map">
+      <Sidebar />
+      <Trainer setIsOpen={setIsOpen} />
+      <Modal isOpen={isOpen} isCapture={false} isCreating={false} />
+    </S.MapWrapper>
+  );
+};
 
 export default MapPage;

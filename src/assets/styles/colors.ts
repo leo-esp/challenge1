@@ -4,7 +4,7 @@ export const theme = {
   primary: "#00D68F",
   primaryDark: "#004A45",
   primaryTransparent: "rgba(0,214,143,0.48)",
-  primaryGradient: "linear-gradient(to right, #00D68F, #38F2BD)",
+  primaryGradient: "linear-gradient(to right, #00D68F, #37F8D6)",
 
   // Action
   action: "#FF3D71",
@@ -29,16 +29,17 @@ export const theme = {
   },
 
   // Neutrals
-
-  neutral100: "#FFFFFF",
-  neutral200: "#F7F9FC",
-  neutral300: "#EDF1F7",
-  neutral500: "#C5CEE0",
-  neutral600: "#8F9BB3",
-  neutral700: "#2E3A59",
-  neutral900: "#192038",
-  neutral1000: "#151A30",
-  neutral1100: "#101426",
+  neutrals: {
+    neutral100: "#FFFFFF",
+    neutral200: "#F7F9FC",
+    neutral300: "#EDF1F7",
+    neutral500: "#C5CEE0",
+    neutral600: "#8F9BB3",
+    neutral700: "#2E3A59",
+    neutral900: "#192038",
+    neutral1000: "#151A30",
+    neutral1100: "#101426",
+  },
 
   // Modal Background
 

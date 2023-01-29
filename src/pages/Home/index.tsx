@@ -1,14 +1,14 @@
 import React from "react";
 import * as S from "./styled";
-import pokemonLogo from "assets/images/pokemonLogo.png";
-import Button from "components/Button";
+import { PokemonLogo } from "../../assets/images";
+import Button from "../../components/atoms/Buttons/DefaultButton";
 import { Link } from "react-router-dom";
 
 export interface Props {}
 const HomePage = () => {
   return (
     <S.HomeWrapper>
-      <img src={pokemonLogo} alt="Logo do Pokemon" />
+      <img src={PokemonLogo} alt="Logo do Pokemon" />
       <Link to="/map">
         <Button text="Start" />
       </Link>
