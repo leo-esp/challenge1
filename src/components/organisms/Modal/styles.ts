@@ -1,7 +1,5 @@
 import styled, { css } from "styled-components";
-import { Props as ModalProps } from "./index";
 import { theme } from "assets/styles/colors";
-type StyledModalProps = ModalProps & { theme: typeof theme };
 type StyledProps = { theme: typeof theme };
 
 const Container = css`
@@ -21,13 +19,20 @@ export const Modal = styled.div<{ isOpen: boolean }>`
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
+  overflow: hidden;
 `;
 
 export const ModalContainer = styled.div`
   margin: auto;
   width: 300px;
   border-radius: 5px;
-  padding-top: 20px;
+  padding-top: 20px;  
+  overflow: auto;
+
+  @media only screen and (max-width: 450px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -51,7 +56,7 @@ export const ModalHeader = styled.div`
 export const ModalContent = styled.div`
   margin-top: -20px;
   border-radius: 20px 20px 5px 5px;
-  padding: 130px 20px 20px 20px;
+  padding: 170px 20px 20px 20px;
   background-color: ${(props: StyledProps) => props.theme.neutrals.neutral300};
   position: relative;
   display: flex;

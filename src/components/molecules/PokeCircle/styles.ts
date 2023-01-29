@@ -18,6 +18,7 @@ export const PokeCircle = styled.div`
 
   width: 75%;
   aspect-ratio: 1 / 1;
+
 `;
 
 export const PokemonImage = styled.img`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Field, Form as FormRaw, Formik, FormikProps } from "formik";
+import { Form as FormRaw } from "formik";
 
 export const PokeForm = styled.div``;
 

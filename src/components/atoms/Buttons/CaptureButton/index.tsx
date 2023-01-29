@@ -1,6 +1,8 @@
 import React from "react";
 import * as S from "./styles";
-
-const CaptureButton: React.FunctionComponent = () => <S.CaptureButton />;
+interface Props {
+    onClick: () => void;
+}
+const CaptureButton: React.FunctionComponent<Props> = ({ ...props }) => <S.CaptureButton {...props} />;
 
 export default CaptureButton;

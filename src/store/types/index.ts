@@ -1,92 +1,99 @@
 export enum types {
-  NORMAL = "normal",
-  BUG = "bug",
-  DARK = "dark",
-  ELETRIC = "eletric",
-  FAIRY = "fairy",
-  FIGHTING = "fighting",
-  FLYING = "flying",
-  GHOST = "ghost",
-  GRASS = "grass",
-  ICE = "ice",
-  POISON = "poison",
-  PSYCHIC = "psychic",
-  STEEL = "steel",
-  WATER = "water",
+    BUG = "bug",
+    DARK = "dark",
+    DRAGON = 'dragon',
+    ELETRIC = "eletric",
+    FAIRY = "fairy",
+    FIGHTING = "fighting",
+    FIRE = 'fire',
+    FLYING = "flying",
+    GHOST = "ghost",
+    GRASS = "grass",
+    GROUND = 'ground',
+    ICE = "ice",
+    NORMAL = "normal",
+    POISON = "poison",
+    PSYCHIC = "psychic",
+    ROCK = "rock",
+    SHADOW = 'shadow',
+    STEEL = "steel",
+    UNKNOW = 'unknow',
+    WATER = "water",
 }
 export enum translatedTypes {
-  normal = "normal",
-  bug = "inseto",
-  dark = "sombrio",
-  eletric = "elétrico",
-  fairy = "fada",
-  fighting = "lutador",
-  flying = "voador",
-  ghost = "fantasma",
-  grass = "planta",
-  ice = "gelo",
-  poison = "veneno",
-  psychic = "psíquico",
-  steel = "aço",
-  water = "água",
+    bug = "inseto",
+    dark = "sombrio",
+    dragon = 'dragão',
+    eletric = "elétrico",
+    fairy = "fada",
+    fighting = "lutador",
+    fire = 'fogo',
+    flying = "voador",
+    ghost = "fantasma",
+    grass = "planta",
+    ground = 'terra',
+    ice = "gelo",
+    normal = "normal",
+    poison = "veneno",
+    psychic = "psíquico",
+    rock = "pedra",
+    shadow = "sombroso",
+    steel = "aço",
+    unknow = "desconhecido",
+    water = "água",
 }
+
 export enum translatedBodyStats {
-  hp = "hp",
-  height = "altura",
-  weight = "peso",
+    hp = "hp",
+    height = "altura",
+    weight = "peso",
 }
 export enum translatedStats {
-  attack = "ataque",
-  defense = "defesa",
-  specialAttack = "ataque especial",
-  specialDefense = "defesa especial",
-  speed = "velocidade",
+    attack = "ataque",
+    defense = "defesa",
+    specialAttack = "ataque especial",
+    specialDefense = "defesa especial",
+    speed = "velocidade",
 }
 
 export interface Stats {
-  attack?: number | null;
-  defense: number | null;
-  specialAttack: number | null;
-  specialDefense: number | null;
-  speed: number | null;
+    attack?: number | null;
+    defense: number | null;
+    specialAttack: number | null;
+    specialDefense: number | null;
+    speed: number | null;
 }
 
 export interface BodyStats {
-  hp: number | null;
-  height: number | null;
-  weight: number | null;
+    hp: number | null;
+    height: number | null;
+    weight: number | null;
 }
 
 export interface Pokemon {
-  image: string;
-  name: string;
-  types: types[];
-  abilities: string[];
-  stats: Stats;
-  bodyStats: BodyStats;
-}
-
-export interface AppState {
-  appState: { isCreating: boolean; isEditing: boolean; isAppearing: boolean };
-  modalPokemon: Pokemon | null;
-  pokemonParty: Pokemon[];
+    image: string;
+    name: string;
+    types: types[];
+    abilities: string[];
+    stats: Stats;
+    bodyStats: BodyStats;
 }
 
 export const EmptyPokemon: () => Pokemon = () => ({
-  image: "",
-  name: "",
-  types: [],
-  abilities: [],
-  stats: {
-    attack: null,
-    defense: null,
-    specialAttack: null,
-    specialDefense: null,
-    speed: null,
-  },
-  bodyStats: {
-    hp: null,
-    height: null,
-    weight: null,
-  },
+    image: "",
+    name: "",
+    types: [],
+    abilities: [],
+    stats: {
+        attack: null,
+        defense: null,
+        specialAttack: null,
+        specialDefense: null,
+        speed: null,
+    },
+    bodyStats: {
+        hp: null,
+        height: null,
+        weight: null,
+    },
 });
