@@ -2,22 +2,21 @@ import styled from "styled-components";
 import { Pokeball } from "../../../../assets/images";
 
 export const CaptureButton = styled.button`
+  align-self: center;
+  aspect-ratio: 1 / 1;
+  background-image: url(${Pokeball});
   background-position: center;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  background-size: 150%;
   border-radius: 50%;
   border: none;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  align-self: center;
-  background-image: url(${Pokeball});
-  width: 20%;
-  aspect-ratio: 1 / 1;
-  border: solid black 3px;
+  width: 5rem;
+  position: fixed;
+  bottom: 20%;
 
-  img {
-    width: 50px;
-    height: 50px;
+  @media only screen and (max-width: 450px) {
+    width: 20%;
+    bottom: 5%;
   }
 `;

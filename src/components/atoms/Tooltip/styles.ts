@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { Props as TooltipProps } from "./index";
 import { theme } from "../../../assets/styles/colors";
-import searchTooltip from "../../../assets/images/searchTooltip.png";
-import searchingTooltip from "../../../assets/images/searchingTooltip.png";
+import {
+  SearchTooltip,
+  SearchingTooltip,
+  ErrorTooltip,
+} from "../../../assets/images";
 
 type StyledTooltipProps = TooltipProps & { theme: typeof theme };
 
@@ -10,8 +13,11 @@ export const Tooltip = styled.img<TooltipProps>`
   color: ${(props: StyledTooltipProps) => props.theme.action};
   visibility: hidden;
   opacity: 0;
-  content: ${(props: StyledTooltipProps) =>
-    props.isLoading ? `url(${searchingTooltip})` : `url(${searchTooltip})`};
+  content: ${(props: StyledTooltipProps) => {
+    if (props.isError) return `url(${ErrorTooltip})`;
+    if (props.isLoading) return `url(${SearchingTooltip})`;
+    return `url(${SearchTooltip})`;
+  }};
   position: relative;
   left: 3px;
   top: 20px;

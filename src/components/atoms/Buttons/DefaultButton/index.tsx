@@ -3,14 +3,20 @@ import React from "react";
 import * as S from "./styled";
 
 export interface Props {
-  text: string;
+  text?: string;
   icon?: string;
   onClick?: () => void;
   onlyIcon?: boolean;
   type?: "submit" | "reset" | "button";
 }
 
-const Button = ({ text, icon, onClick, type = "button", ...props }: Props) => (
+const Button = ({
+  text = "",
+  icon,
+  onClick,
+  type = "button",
+  ...props
+}: Props) => (
   <S.ButtonWrapper
     {...props}
     className={`${icon ? "icon" : ""}`}

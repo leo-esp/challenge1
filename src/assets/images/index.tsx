@@ -2,7 +2,7 @@ export { default as AshFront } from "./ashFront.png";
 export { default as AshLeft } from "./ashLeftLeg.png";
 export { default as AshRight } from "./ashRightLeg.png";
 export { default as AshStop } from "./ashStop.png";
-export { default as Camera } from "./camera.png";
+export { default as CameraIcon } from "./camera.png";
 export { default as CheckIcon } from "./checkIcon.png";
 export { default as ChevronDownBlack } from "./chevronDownBlack.png";
 export { default as ChevronDownWhite } from "./chevronDownWhite.png";

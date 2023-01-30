@@ -6,15 +6,41 @@ import InputNumber from "../../atoms/InputNumber";
 import HrTitle from "../../atoms/HrTitle";
 import Button from "../../atoms/Buttons/DefaultButton";
 import Dropdown from "../../molecules/Dropdown";
-import { EmptyPokemon } from "../../../store/types";
+import { EmptyPokemon, Pokemon, types } from "../../../store/types";
+import { addPokemonToParty } from "../../../store/pokemonPartySlice";
+import { useAppDispatch } from "../../../utils/hooks";
+import { setPokemonModal } from "../../../store/modalPokemonSlice";
+import { setIsOpen } from "../../../store/stateSlice";
+import * as Yup from "yup";
+
+const PokemonSchema = Yup.object().shape({
+  image: Yup.string().notRequired().default(""),
+  name: Yup.string().required(),
+  types: Yup.array().of(Yup.string()).required(),
+  abilities: Yup.array().required(),
+  stats: Yup.object().shape({
+    attack: Yup.number().required(),
+    defense: Yup.number().required(),
+    specialAttack: Yup.number().required(),
+    specialDefense: Yup.number().required(),
+    speed: Yup.number().required(),
+  }),
+  bodyStats: Yup.object().shape({
+    hp: Yup.number().required(),
+    height: Yup.number().required(),
+    weight: Yup.number().required(),
+  }),
+});
 
 const PokeForm = () => {
+  const dispatch = useAppDispatch();
   return (
     <S.PokeForm>
       <Formik
         initialValues={EmptyPokemon()}
-        onSubmit={(values) => {
-          console.log(values);
+        validationSchema={PokemonSchema}
+        onSubmit={(values: Pokemon) => {
+          dispatch(addPokemonToParty(values));
         }}
       >
         {(props: FormikProps<any>) => (
@@ -58,6 +84,8 @@ const PokeForm = () => {
               component={Dropdown}
               placeholder="Selecione o(s) tipo(s)"
               id="types"
+              name="types"
+              multiple
               onChange={props.handleChange}
               onBlur={props.handleBlur}
             />
@@ -141,7 +169,14 @@ const PokeForm = () => {
               onChange={props.handleChange}
               onBlur={props.handleBlur}
             />
-            <Button type="submit" text="Criar Pokemon" />
+            <Button
+              type="submit"
+              text="Criar Pokemon"
+              onClick={() => {
+                dispatch(setPokemonModal(null));
+                dispatch(setIsOpen(false));
+              }}
+            />
           </S.Form>
         )}
       </Formik>

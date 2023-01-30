@@ -8,6 +8,7 @@ export default {
 
 export const Default: StoryObj<DropdownProps> = {
   args: {
+    name: "teste",
     options: [
       { value: "eletric", text: "eletric" },
       { value: "grass", text: "grass" },

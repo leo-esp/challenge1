@@ -1,25 +1,42 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import * as S from "./styles";
-import cameraImage from "../../../assets/images/camera.png";
-import plusImage from "../../../assets/images/plus.png";
+import { PlusIcon, CameraIcon } from "../../../assets/images";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
+import { setPokemonImageModal } from "../../../store/modalPokemonSlice";
 
 export interface Props {
   pokemonImage?: string;
 }
 
 const PokeCircle: React.FC<Props> = ({ pokemonImage }) => {
+  const dispatch = useAppDispatch();
+  const { isCreating } = useAppSelector((state) => state.appState);
+  const modalPokemon = useAppSelector((state) => state.modalPokemon);
   return (
     <S.PokeCircle>
-      {!pokemonImage && (
-        <S.EmptyPokemon>
-          <img id="cameraIcon" src={cameraImage} alt="Ícone de Camêra" />
+      {isCreating && !modalPokemon && (
+        <S.EmptyPokemon htmlFor="addFile">
+          <img id="cameraIcon" src={CameraIcon} alt="Ícone de Camêra" />
           <div id="plusIcon">
-            <img src={plusImage} alt="Ícone do sinal de mais" />
+            <img src={PlusIcon} alt="Ícone do sinal de mais" />
           </div>
+          <input
+            type="file"
+            id="addFile"
+            onChange={(e: ChangeEventHandler<HTMLInputElement>) => {
+              if (e.target.files && e.target.files[0]) {
+                let img = e.target.files[0];
+                console.log(e.target.files[0]);
+                console.log("------------------------------------");
+                console.log(URL.createObjectURL(img));
+                dispatch(setPokemonImageModal(URL.createObjectURL(img)));
+              }
+            }}
+          />
         </S.EmptyPokemon>
       )}
-      {pokemonImage && (
-        <S.PokemonImage src={pokemonImage} alt="Imagem de um pokemon" />
+      {modalPokemon && (
+        <S.PokemonImage src={modalPokemon?.image} alt="Imagem de um pokemon" />
       )}
     </S.PokeCircle>
   );

@@ -15,7 +15,7 @@ export const theme = {
         normal: "#C4C0B4",
         bug: "#87950C",
         dark: "#413831",
-        eletric: "#E08D00",
+        electric: "#E08D00",
         fairy: "#E29FE6",
         fighting: "#852816",
         flying: "#8FA4FF",
@@ -31,7 +31,7 @@ export const theme = {
         ground: '#E0C068',
         dragon: '#7038F8',
         shadow: '#2C2E2B',
-        unknown: '#68A090',
+        unknow: '#68A090',
     },
 
     // Neutrals

@@ -1,21 +1,46 @@
 import React, { useEffect, useState } from "react";
-
-import { ChevronDownBlack } from "../../../assets/images";
+import { FieldProps } from "formik";
 import { getTypes } from "../../../services";
+import Select from "react-select";
+import { OptionsType, ValueType } from "react-select/lib/types";
 
 import * as S from "./styled";
 
 interface Option {
   value: string;
-  text: string;
-}
-
-export interface Props {
   label: string;
-  options: Option[];
 }
 
-const DropdownPage: React.FunctionComponent<Props> = ({ label, ...props }) => {
+export interface CustomProps extends FieldProps {
+  label: string;
+  options: OptionsType<Option>;
+  multiple?: boolean;
+}
+
+const DropdownPage: React.FunctionComponent<CustomProps> = ({
+  label,
+  field,
+  form,
+  multiple,
+}) => {
+  const onChange = (option: ValueType<Option | Option[]>) => {
+    form.setFieldValue(
+      field.name,
+      multiple
+        ? (option as Option[]).map((item: Option) => item.value)
+        : (option as Option).value
+    );
+  };
+
+  const getValue = () => {
+    if (options) {
+      return multiple
+        ? options.filter((option) => field.value.indexOf(option.value) >= 0)
+        : options.find((option) => option.value === field.value);
+    } else {
+      return multiple ? [] : ("" as string);
+    }
+  };
   const [options, setOptions] = useState<Option[]>([]);
 
   useEffect(() => {
@@ -24,7 +49,7 @@ const DropdownPage: React.FunctionComponent<Props> = ({ label, ...props }) => {
       setOptions(
         types.map((type: { name: string; url: string }) => ({
           value: type.name,
-          text: type.name,
+          label: type.name,
         }))
       );
     };
@@ -32,22 +57,18 @@ const DropdownPage: React.FunctionComponent<Props> = ({ label, ...props }) => {
   }, []);
 
   return (
-    <S.DropdownWrapper>
-      {label && <S.Label>{label}</S.Label>}
-
-      <S.DropdownContent>
-        <S.Select {...props}>
-          <S.DropdownOption value="">Selecione o(s) tipo(s)</S.DropdownOption>
-          {options &&
-            options.map((option, index) => (
-              <S.DropdownOption key={index} value={option.value}>
-                {option.text}
-              </S.DropdownOption>
-            ))}
-        </S.Select>
-        <S.DropdownIcon src={ChevronDownBlack} alt="Chevron" />
-      </S.DropdownContent>
-    </S.DropdownWrapper>
+    <Select
+      name={field.name}
+      value={getValue()}
+      onChange={onChange}
+      placeholder="Selecione o(s) tipo(s)"
+      options={options}
+      isMulti={multiple}
+      isOptionDisabled={() => {
+        return (multiple &&
+          (getValue() as Array<Option>).length >= 2) as boolean;
+      }}
+    />
   );
 };
 

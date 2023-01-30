@@ -18,14 +18,13 @@ export const PokeCircle = styled.div`
 
   width: 75%;
   aspect-ratio: 1 / 1;
-
 `;
 
 export const PokemonImage = styled.img`
   width: 100%;
 `;
 
-export const EmptyPokemon = styled.div`
+export const EmptyPokemon = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +32,11 @@ export const EmptyPokemon = styled.div`
   width: 60%;
   aspect-ratio: 1 / 1;
   position: relative;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
 
   img#cameraIcon {
     width: 100%;

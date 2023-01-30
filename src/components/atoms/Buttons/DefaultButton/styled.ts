@@ -16,6 +16,8 @@ export const ButtonWrapper = styled.button`
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
   width: fit-content;
   align-self: center;
+  /* position: fixed; */
+  /* bottom: 5%; */
 
   &.icon {
     display: flex;

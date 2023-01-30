@@ -12,12 +12,12 @@ export const PokeName = styled.div`
   align-items: center;
   span {
     font-weight: 700;
-    margin-right: 20px;
   }
 `;
 
 export const EditIcon = styled.img`
   width: 1.2rem;
+  margin-left: 1.2rem;
   cursor: pointer;
 `;
 
