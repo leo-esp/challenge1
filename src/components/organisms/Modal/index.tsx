@@ -17,7 +17,10 @@ import CaptureButton from "../../atoms/Buttons/CaptureButton";
 import PokeForm from "../PokeForm";
 
 import { useAppSelector, useAppDispatch } from "../../../utils/hooks";
-import { addPokemonToParty } from "../../../store/pokemonPartySlice";
+import {
+  addPokemonToParty,
+  releasePokemon,
+} from "../../../store/pokemonPartySlice";
 import { setIsOpen } from "../../../store/stateSlice";
 import { setPokemonModal } from "../../../store/modalPokemonSlice";
 import { useRef, useEffect } from "react";
@@ -36,7 +39,6 @@ const Modal: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log("ref: ", modalRef);
     if (modalRef && modalRef.current) {
       modalRef.current.scrollIntoView({
         block: "start",
@@ -114,14 +116,16 @@ const Modal: React.FunctionComponent = () => {
                 />
               )}
 
-              {isPartyFull && (
-                <Button
-                  text="Liberar Pokemon"
-                  onClick={() => {
-                    closeAndClean();
-                  }}
-                />
-              )}
+              {isPartyFull ||
+                (isEditing && (
+                  <Button
+                    text="Liberar Pokemon"
+                    onClick={() => {
+                      if (!isAppearing) dispatch(releasePokemon(modalPokemon));
+                      closeAndClean();
+                    }}
+                  />
+                ))}
             </>
           )}
           {isCreating && <PokeForm />}

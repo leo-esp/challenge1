@@ -6,7 +6,7 @@
 - [x] Essa busca precisa trazer um Pokemon aleatório com um ID randômico de 1 à 807.
 - [x] O start da busca é baseado em um clique no personagem.
 - [x] Após a busca abrir um modal de acordo com o layout do componente “Capture”.
-- [ ] Adicionar a esse modal que exibe o Pokemon capturado um botão que permita o usuário liberar esse pokemon capturado.
+- [x] Adicionar a esse modal que exibe o Pokemon capturado um botão que permita o usuário liberar esse pokemon capturado.
 - [x] No sidebar a esquerda tem um botão que permite o usuário criar um pokemon customizado.
 - [x] Após o usuário salvar esse pokemon ele deve aparecer no sidebar ocupando uma das 6 posições disponíveis.
 - [ ] A ideia aqui é permitir que o usuário possa editar seu pokemon customizado após a sua criação.
@@ -35,9 +35,9 @@
 [ ] Usuário pode editar SOMENTE o nome de um Pokémon que foi capturado.
 [x] Na SideBar o usuário tem a possibilidade de criar um Pokémon (um Pokémon pode ter no máximo 2 "tipos").
 [ ] O formulário de criação de Pokémon deve conter validações em todos os campos.
-[ ] Caso algum campo não esteja preenchido, o botão de criação deve ficar bloqueado.
+[x] Caso algum campo não esteja preenchido, o botão de criação deve ficar bloqueado.
 [ ] Para um Pokémon criado o usuário pode editar qualquer informação ou liberá-lo.
-[ ] Sempre que liberar um Pokémon é possível capturar outro através da busca ou criar um customizado.
+[x] Sempre que liberar um Pokémon é possível capturar outro através da busca ou criar um customizado.
 [x] Caso as 6 posições estejam ocupadas o usuário não pode mais buscar nem criar novos Pokémons.
 [x] Responsividade para resoluções desktop e mobile. (Ex: 1280 x 720, 360 x 740)
 

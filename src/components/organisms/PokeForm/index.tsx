@@ -172,6 +172,7 @@ const PokeForm = () => {
             <Button
               type="submit"
               text="Criar Pokemon"
+              disabled={!(props.dirty && props.isValid)}
               onClick={() => {
                 dispatch(setPokemonModal(null));
                 dispatch(setIsOpen(false));

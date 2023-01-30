@@ -1,5 +1,16 @@
-import styled from "styled-components";
-
+import styled, { css } from "styled-components";
+import { theme } from "../../../../assets/styles/colors";
+const disabledStyle = css`
+  background-color: ${(props: { theme: typeof theme }) =>
+    props.theme.neutrals.neutral500};
+  border-color: ${(props: { theme: typeof theme }) =>
+    props.theme.neutrals.neutral500};
+  cursor: not-allowed;
+  &:hover {
+    background-color: ${(props: { theme: typeof theme }) =>
+      props.theme.neutrals.neutral500};
+  }
+`;
 export const ButtonWrapper = styled.button`
   padding: 1rem 2rem;
   background-color: #ff3d71;
@@ -31,6 +42,8 @@ export const ButtonWrapper = styled.button`
   &:hover {
     background-color: #db2c66;
   }
+
+  ${(props) => props.disabled && disabledStyle}
 `;
 
 export const Icon = styled.img``;

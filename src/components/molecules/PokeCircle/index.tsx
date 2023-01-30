@@ -26,9 +26,6 @@ const PokeCircle: React.FC<Props> = ({ pokemonImage }) => {
             onChange={(e: ChangeEventHandler<HTMLInputElement>) => {
               if (e.target.files && e.target.files[0]) {
                 let img = e.target.files[0];
-                console.log(e.target.files[0]);
-                console.log("------------------------------------");
-                console.log(URL.createObjectURL(img));
                 dispatch(setPokemonImageModal(URL.createObjectURL(img)));
               }
             }}
