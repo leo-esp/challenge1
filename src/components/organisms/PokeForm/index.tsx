@@ -6,7 +6,7 @@ import InputNumber from "../../atoms/InputNumber";
 import HrTitle from "../../atoms/HrTitle";
 import Button from "../../atoms/Buttons/DefaultButton";
 import Dropdown from "../../molecules/Dropdown";
-import { EmptyPokemon, Pokemon, types } from "../../../store/types";
+import { EmptyPokemon, Pokemon } from "../../../store/types";
 import { addPokemonToParty } from "../../../store/pokemonPartySlice";
 import { useAppDispatch } from "../../../utils/hooks";
 import { setPokemonModal } from "../../../store/modalPokemonSlice";

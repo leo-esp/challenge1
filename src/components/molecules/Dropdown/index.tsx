@@ -4,8 +4,6 @@ import { getTypes } from "../../../services";
 import Select from "react-select";
 import { OptionsType, ValueType } from "react-select/lib/types";
 
-import * as S from "./styled";
-
 interface Option {
   value: string;
   label: string;

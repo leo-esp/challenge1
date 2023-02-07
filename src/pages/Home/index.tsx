@@ -1,4 +1,3 @@
-import React from "react";
 import * as S from "./styled";
 import { PokemonLogo } from "../../assets/images";
 import Button from "../../components/atoms/Buttons/DefaultButton";

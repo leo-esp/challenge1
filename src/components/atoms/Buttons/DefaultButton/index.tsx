@@ -1,5 +1,3 @@
-import React from "react";
-
 import * as S from "./styled";
 
 export interface Props {
@@ -8,7 +6,7 @@ export interface Props {
   onClick?: () => void;
   onlyIcon?: boolean;
   type?: "submit" | "reset" | "button";
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 const Button = ({
